@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sorting Hat</title>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<script src ="files/scripts/admin.js" async></script>
+	<script src ="files/scripts/admin_data.js" async></script>
+	<script src ="files/scripts/admin_utility.js" async></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" id="light">
+	<link rel="stylesheet" href="files/css/styles.css">	
+
+</head>
+
+<body>
+<div class="container-fluid">
+	<div id='mainpage' class="mainpage" style="display: none"> 
+
+		<!--Top bar of the page-->
+		<div class='menu' id='menu'>
+			<div class='row'>
+				<div class="col-lg-3 col-md-4 col-sm-12 header" ><div id="dropdown" class="dropdown"></div></div>
+				<div class="col-lg-3 col-md-4 col-sm-12 header" id="enrollment"><button type="button" class="btn btn-lg btn-outline-secondary btn-block header" disabled >enrollment status</button></div>
+				<div class="col-lg-3 col-md-4 col-sm-12 header" id="display_professor"></div>
+				<div class="col-lg-3 col-md-4 col-sm-12 header" id="night-mode">
+					<button type="button" class="btn btn-lg btn-outline-secondary btn-block header" onclick="nightMode()" id="night-mode-btn" disabled>Night Mode</button>
+				</div>
+			</div>
+		</div>
+		<!--main content of the page-->
+		<div class='row' style="height: 90vh">
+			<div class='col-lg-2 col-md-3 col-sm-4' id='left' data-spy="scroll" data-target="#student-list" data-offset="10"> <!--left side of the page-->
+				<div id="student-list"></div>
+			</div>
+			<div class='col-lg-8 col-md-6 col-sm-4' id='middle'> <!--middle of the page-->
+				<div id='team-section' class='row'></div>
+			</div>
+			<div class='col-lg-2 col-md-3 col-sm-4' id='right'> <!--right side of the page-->
+				
+				<div id='side-container' style="display: none">
+					<div id='sort'></div>
+					<div id='filters'></div>
+				</div>
+			</div> 
+		</div>
+	</div>
+	
+	<!--The login page div, starts fullscreen-->
+	<div id="login_div" class="fullscreen">
+		<div class='btn btn-secondary btn-lg btn-block header' id='login_header' onclick='document.getElementById("login_help").click()'>sorting hat administration</div>
+		<div class='btn btn-outline-secondary btn-lg btn-block header' id='prof_div' onclick='document.getElementById("login_text").focus()'>professor<span id='prof_info'></span></div>
+
+		<!-- form information -->
+		<form id="authenticate" onsubmit="return false">
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-sm-2"><button id='login_help' type="button" class="btn btn-secondary btn-lg btn-block" onclick='toggleVisibility("help_div")'>?</button></div>
+				<div class="col-lg-3 col-md-3 col-sm-10"><input type="text" class="form-control form-control-lg" id="login_text" name="login_text" pattern="[A-Za-z]+" placeholder="Login" required autofocus oninput="document.getElementById('prof_info').innerHTML = ' | '+this.value" /></div>
+				<div class="col-lg-4 col-md-4 col-sm-6" ><input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password" required /></div>
+				<div class="col-lg-2 col-md-2 col-sm-3" ><button type="submit" id="login_button" class="btn btn-outline-success btn-lg btn-block" onclick="authenticate()">Login!</button></div>
+				<div class="col-lg-2 col-md-2 col-sm-3" ><button type="button" class="btn btn-outline-danger btn-lg btn-block" data-toggle="modal" data-target="#login_modal">New</button></div>
+
+			</div>
+
+			<div id='help_div' class='bs-callout bs-callout-info help' style="visibility: hidden">
+				<h4>It looks like you're struggling to log in</h4>
+				<span id='help_text'>Type in your username and password to log in. If you have forgotten your username and password, there isn't much we can do. We will need to retrieve the password from the database as we don't have a password reset form working yet.</span>
+			</div>
+		</form>
+	</div>
+</div>
+
+ <!-- Modal -->
+ <!-- https://www.w3schools.com/bootstrap/bootstrap_modal.asp -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class='header' style="text-align: left !important">create a new course</div>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+	        <form id="new-class-form"  onsubmit="return false">
+				<input type="text" id="className" class='form-control form-control-lg' placeholder='Course Name' pattern="[\w\s]+" maxlength="25"/><hr>
+				<button type="submit" id="createClass" class="btn btn-success btn-lg btn-block header" onclick="validateClass()">Create!</button>
+			</form>
+        </div>
+        <div class="modal-footer">
+        	<div id="c_results" class='results'></div>
+        	<div ><button type="button" class="btn btn-lg btn-outline-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="modal fade" id="login_modal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class='header' style="text-align: left !important">create a new login</div>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+	        <form id="new-login-form"  onsubmit="return false">
+					<label class='form_title'>username</label><input type="text" id="login_id" class='form-control form-control-lg' placeholder='Username' minlength="6" maxlength="20" autocomplete="off"/>
+					<label class='form_title'>password</label><input type="password" id="login_pass" class='form-control form-control-lg' placeholder='Password' maxlength="45" autocomplete="off"/>
+					<label class='form_title'>last name</label><input type="text" id="login_name" class='form-control form-control-lg' placeholder='Last Name' pattern="[\w]{1,20}" maxlength="20"/>
+					<label class='form_title'>email</label><input type="email" id="login_email" class='form-control form-control-lg' placeholder='Email' maxlength="45"/><hr>
+					<button type="submit" id="login_submit" class="btn btn-outline-success btn-lg btn-block header" onclick="validateNewLogin()">Create!</button>
+			</form>
+        </div>
+        <div class="modal-footer">
+        	<div id="login_results" class='results'></div>
+        	<div ><button type="button" class="btn btn-lg btn-outline-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+  <div class="modal fade" id="help_modal" role="dialog">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div class='header' style="text-align: left !important" id="help_header"></div>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+        	<div id="help_content"></div>
+        </div>
+        <div class="modal-footer">
+        	<div id="results" class='results'>
+        		<button type="button" class="btn btn-lg btn-outline-primary" style="float: left" onclick='getNext()'>Next</button>
+        		<span id="help_counter" class="btn btn-lg btn-success" style="margin-left: 5px" disabled></span>
+        	</div>
+        	<div>
+				<button type="button" class="btn btn-lg btn-outline-danger" style="float: right" data-dismiss="modal">Close</button>
+			</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--Student info modal-->
+
+  <div class="modal fade " id="student-info-modal" role="dialog">
+  <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+		  <div class="modal-header">
+		  <!--Student's name as title-->
+			<h5 class="modal-title" id="student-name"></h5>
+
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			  <span aria-hidden="true">&times;</span>
+			</button>
+		  </div>
+		  <div class="modal-body">
+			<div id="student-scores"></div>
+		  </div>
+		  
+		  <div class="modal-footer">
+        	<div style="float: right">
+				<button type="button" class="btn btn-lg btn-warning" id="del-btn" aria-label="Delete">Delete</button>
+				<button type="button" class="btn btn-lg btn-outline-danger" data-dismiss="modal">Close</button>
+        	<div id="results" class='results'>
+        	</div>
+          </div>
+		  
+      </div>
+    </div>
+  </div>
+  
+
+</body>
+	
+</html>

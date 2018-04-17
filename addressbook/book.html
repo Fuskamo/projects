@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+	<meta charset="UTF-8"/> 
+	<title>Address Book: </title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCNoOPiV_v6KKIBcHUhDc7xNAkkqKjVTCk"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>	  	
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src ="files/scripts/action.js"></script>
+	<script src ="files/scripts/data.js"></script>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" href="files/css/styles.css">	
+
+</head>
+
+<body onload="start()">
+	<div class="test">
+		<h1 id="page_name"></h1>
+		<div class="menu">
+			<button type="button" id="add" class="btn btn-success" onclick="addClick()">Add</button> 
+			<button type="button" id="edit" class="btn btn-primary" onclick="editClick()">Edit</button>
+			<button type="button" id="delete" class="btn btn-danger" data-toggle="confirmation" onclick="delClick()" >Delete</button>
+			<button type="button" id="cancel" class="btn btn-warning" onclick="cancelClick()">Cancel</button>
+			<span class="inline">
+				<form id="searchform" name="searchform" onsubmit="return false">
+					<input  type="search" id="searchTerm" placeholder="&#xF002;"/>
+					<button type="submit" id="searchbutton" class="btn btn-warning" onclick='searchClick()'>Search!</button>
+					<button type="button" id="searchReset" class="btn btn-danger" onclick="resetPage()">Clear Results</button>
+				</form>
+			</span>
+			<span class="function-btn">
+				<button type="button" id="delete_book" class="btn btn-danger" onclick="deleteBook()">Delete Book</button>
+				<button type="button" id="import" class="btn btn-info" onclick="document.getElementById('import_click').click()">Import</button>
+				<input type="file" id="import_click" style="display: none" onchange="importFile(this.files)" accept=".csv, .tsv" />
+				<button type="button" id="export" class="btn btn-info" onclick="exportClick()">Export</button>
+			</span>
+		</div>
+		
+		<div class="input_area" id="input_area">
+		</div>
+		<div class="contact_area" id="contact_area">
+		</div>
+	</div>
+	<div class="mapdiv">
+		<div class="person_map">
+			<p id="mapTitle"></p>
+			<div class="map" id="map"></div>
+		</div>
+	</div>
+</body>
+
+</html>

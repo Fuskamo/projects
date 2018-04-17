@@ -1,0 +1,200 @@
+/* 
+https://css-tricks.com/styling-cross-browser-compatible-range-inputs-css/
+https://css-tricks.com/value-bubbles-for-range-inputs/
+
+http://danielstern.ca/range.css/?ref=css-tricks#/
+*/
+input[type=range] {
+  -webkit-appearance: none;
+  width: 87%;
+  margin: 12.15px 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 11.7px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #000000;
+  border-radius: 25px;
+  border: 0px solid #000000;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 18px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -12.15px;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #0f0f0f;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 11.7px;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+  background: #000000;
+  border-radius: 25px;
+  border: 0px solid #000000;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 18px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 11.7px;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #000000;
+  border: 0px solid #000000;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-fill-upper {
+  background: #000000;
+  border: 0px solid #000000;
+  border-radius: 50px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0), 0px 0px 0px rgba(13, 13, 13, 0);
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 18px;
+  border-radius: 3px;
+  background: #ffffff;
+  cursor: pointer;
+  height: 11.7px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #000000;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #0f0f0f;
+}
+
+.mainpage {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-left: 4%;
+  padding-right: 4%;
+  text-align: center;
+  justify-content: center;
+  font-family: Trebuchet MS;
+}
+
+.header {
+	clear: both;
+	font-size: 26px;
+	width: 100%;
+	font-family: Trebuchet MS;
+	text-transform: uppercase;
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+.help {
+	clear: both;
+  text-align: left;
+  font-size: 18px;
+}
+
+.fullscreen {
+  width: 70%;
+  margin: 0 auto;
+  max-width: 1200px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+
+.margin {
+  margin-top: .5rem;
+  margin-bottom: .5rem;
+}
+
+
+.bs-callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+}
+.bs-callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout code {
+  border-radius: 3px;
+}
+.bs-callout+.bs-callout {
+  margin-top: -5px;
+}
+.bs-callout-default {
+  border-left-color: #777;
+}
+.bs-callout-default h4 {
+  color: #777;
+}
+.bs-callout-primary {
+  border-left-color: #428bca;
+}
+.bs-callout-primary h4 {
+  color: #428bca;
+}
+.bs-callout-success {
+  border-left-color: #5cb85c;
+}
+.bs-callout-success h4 {
+  color: #5cb85c;
+}
+.bs-callout-danger {
+  border-left-color: #d9534f;
+}
+.bs-callout-danger h4 {
+  color: #d9534f;
+}
+.bs-callout-warning {
+  border-left-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+  color: #f0ad4e;
+}
+.bs-callout-info {
+  border-left-color: #5bc0de;
+}
+.bs-callout-info h4 {
+  color: #5bc0de;
+}
+
+.btn-circle {
+  width: 30px;
+  height: 30px;
+  padding: 6px 0px;
+  border-radius: 15px;
+  text-align: center;
+  font-size: 12px;
+  line-height: 1.42857;
+}

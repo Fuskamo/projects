@@ -1,0 +1,10 @@
+<?php
+
+$server = "ix.cs.uoregon.edu";
+$dbname ="addressdb";
+$user = "guest";
+$pass = "guest007";
+$port="3602";
+$charset = 'utf8mb4';
+
+?>

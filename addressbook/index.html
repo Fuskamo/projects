@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Project 1: Address Books</title>
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script> <!--jQuery CND-->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src ="files/scripts/action.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="files/css/styles.css">	
+
+</head>
+
+<body onload="startIndex()">
+	<span id="runonce">
+		<div class="container">
+			<h1>Address Books</h1>
+			<div class="index_menu" style="display: inline">
+				<button type="button" id="new" class="btn btn-warning" onclick="unhideBook('newBook')">New</button>
+				<div id="dropdown" class="dropdown" style="display: inline"></div>
+				<div id="newBook" style="display: none; padding: 5px">
+					<form id="newbookform" onsubmit="return false">
+						<input type="text" id="bookName" placeholder="Book Name" pattern="[a-zA-Z0-9\s.-']+" maxlength="25" title="Only letters, numbers, periods and dashes are allowed"/>
+						<button type="submit" id="createBook" class="btn btn-success" onclick="validateBook('results', 'dropdown')";>Create!</button>
+						<button type="button" id="cancelBook" class="btn btn-danger" onclick="hide('newBook')";>Cancel</button>
+					</form>
+				</div>
+				<div id="results"></div>
+			</div>
+			<div class="books">
+				<div id="book_list"></div>
+			</div>
+		</div>
+	</span>
+		<div id="login_div" class="fullscreen">
+			<form id="authenticate" onsubmit="return false">
+				<input type="text" id="login_text" placeholder="Login ID"/>
+				<button type="submit" id="login_button" class="btn btn-success" onclick="authenticate()";>Login!</button>
+			</form>
+		</div>
+
+
+</body>
+	
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8"/>
+	<title>Survey</title>
+	
+	<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+	<script src ="files/scripts/survey.js"></script>
+	<script src ="files/scripts/survey_data.js"></script>
+	<script src ="files/scripts/survey_random.js"></script>
+
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<link rel="stylesheet" href="files/css/styles.css">	
+
+</head>
+
+<body onload='loadLogin()'>
+	<div id='mainpage' class='mainpage' style="display: none">
+		<div class='row'>
+			<div class="col-lg-4 col-md-12 col-sm-12 header" id="display_id"></div>
+			<div class="col-lg-4 col-md-12 col-sm-12 header" id="display_class"></div>
+			<div class="col-lg-4 col-md-12 col-sm-12 header" id="display_professor"></div>
+		</div>
+		<div id='results'></div>
+	</div>
+
+	<div id="login_div" class="fullscreen">
+		<div class='btn btn-secondary btn-block header' id='login_header' onclick='document.getElementById("course_help").click()'>student survey page</div>
+		<div class='btn btn-outline-secondary btn-block header' id='stud_div' onclick='document.getElementById("student_id").focus()'>student id<span id='student_info'></span></div>
+		<div class='btn btn-outline-secondary btn-block header' id='prof_div' onclick='document.getElementById("professor_dropdown").click()'>professor<span id='prof_info'></span></div>
+		<div class='btn btn-outline-secondary btn-block header' id='class_div' onclick='document.getElementById("class_dropdown").click()'>course<span id='class_info'></span></div>
+
+		<!-- form information -->
+		<form id="authenticate" onsubmit="return false">
+			<div id='login' class="margin" style="visibility: hidden"><button type="submit" id="login_button" class="btn btn-success btn-block header" onclick="startSurvey()">Start!</button></div>
+			<div class="row">
+				<div class="col-lg-1 col-md-1 col-sm-2"><button id='course_help' type="button" class="btn btn-secondary btn-lg btn-block" onclick='toggleVisibility("help_div")'>?</button></div>
+				<div class="col-lg-3 col-md-3 col-sm-10"><input type="text" class="form-control form-control-lg" id="student_id" name="student_id" pattern="[0-9]{5,12}" placeholder="Student ID" maxlength="12" required autofocus oninput="inputStudentId(this.value)" /></div>
+				<div class="col-lg-4 col-md-4 col-sm-6" id='profdropdown'></div>
+				<div class="col-lg-4 col-md-4 col-sm-6" id='classdropdown'><span><button type="button" id="class_dropdown" class="btn btn-block btn-lg btn-outline-success" disabled>Select Course</button></span></div>
+				
+			</div>
+
+			<input type="text" name="prof_form" id="prof_form" style="display: none"/>
+			<input type="text" name="class_form" id="class_form" style="display: none"/>
+			
+			<div id='help_div' class='bs-callout bs-callout-info' style="visibility: hidden">
+				<h4>Having Trouble?</h4>
+				<span id='help_text'></span>
+			</div>
+		</form>
+		
+	</div>
+</body>
+	
+</html>
