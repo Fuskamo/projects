@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+ <head>
+   <title>Sentinels Home</title>
+   <link rel="stylesheet" type="text/css" href="css/format.css">
+   <link rel="stylesheet" type="text/css" href="css/global.css">
+   <script type="text/javascript" src="scripts/data.js"></script>
+   <script type="text/javascript" src="scripts/heros.js"></script>
+   <script type="text/javascript" src="scripts/basic.js"></script>
+   
+
+ </head>
+<body onload="initialize()">
+	<div class="banner" id="banner">Sentinels of the Multiverse</div>	
+	<div class="container" id="container">
+		<div class="navbar" id="navbar"><script>writeMenu();</script>
+			<button type="button" class="resetbutton" onclick="clearStats();">Clear Selections</button>
+			<span id="column_menu" class="column_menu"><script>writeCardColumns();</script></span>
+			
+		</div>	
+			<div class="hero_side" id="hero_side">	
+				<div class="hero_data" id="hero_data"></div>				
+			</div>
+		<div class="stat_side" id="stat_side">
+			<div class="stat_data" id="stat_data">
+				<div id="directions" class="directions"></div>
+				<div id="edition" class="edition"></div>
+				<div id="dropbox" class="dropbox" ondrop="drop(event);" ondragover="allowDrop(event);"></div>			
+				<div id="nemesis" class="nemesis"></div>
+				<div id="nem_nums" class="nem_nums"></div>
+				<div id="stats" class="stats"></div>			
+				<div id="card_title" class="card_title">&nbsp;</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

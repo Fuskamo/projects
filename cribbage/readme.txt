@@ -1,16 +1,13 @@
-/*
  ============================================================================
  Name        : readme.txt
  Author      : David Jensen
  Class       : CIS 330, WIN17
  Description : Final Project: Cribbage
  ============================================================================
- */
-
 
 DIRECTIONS:
--Download all files in the download list onto IX
--From IX, run the "make" command
+-Download all files in the download list
+-Using a c++ compiler such as gcc run the "make" command
 -Execute the game using "./main"
 -Follow the prompts to play the game
 -Enjoy (if you want)

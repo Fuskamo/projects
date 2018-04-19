@@ -1,0 +1,110 @@
+.hero_side {
+	width: 988px;
+	position: absolute;
+	bottom: 0;
+
+	background-color: #042633;
+}
+.hero_data {
+	float: left;	
+	padding-left: 6px;
+	overflow: auto;
+	max-height: 100%;
+}
+.stat_side {
+	position: absolute;
+	bottom: 0;
+	top: 141;
+	overflow: auto;
+	background-color: #2043FF;
+}
+.stat_data {
+	float: left;
+	width: 100%;
+}
+.edition {
+	height: 175px;
+}
+.centered {
+	display: block;
+	width: auto;
+	height: 175px;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 100%;
+}
+.paragraph {
+	text-transform: none;
+}
+.dropbox {
+	float: left;
+	height: 300px;
+	width: 200px;
+	margin-left: 10px;
+	border: solid;
+	border-color: black;
+	border-width: 7px;
+	border-radius: 10px;
+	background-color: black;
+}
+.nemesis {
+	float: right;
+	position: relative;
+	top: 0;
+	right: 0;
+	height: 300px;
+	width: 200px;
+	margin-right: 10px;
+	border: solid;
+	border-color: black;
+	border-width: 7px;
+	border-radius: 10px;
+	background-color: black;
+	visibility: visible;
+}
+.stats {
+	position: relative;
+	display: table;
+	color: white;
+	text-transform: capitalize;
+	top: 5px;
+	left: 5px;
+	margin-right: 5px;
+	word-wrap: break-word;
+}
+.directions {
+	color: white;
+	background-color: black;
+	padding: 10px;
+	font-size: 16px;
+	text-align: center;	
+}
+.card_title {
+	display: block;
+	background-color: black;
+	color: white;
+	text-transform: uppercase;
+	text-align: center;
+	font-size: 30px;
+	position: absolute;
+	bottom: 0px;
+	width: 100%;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.mini {
+    width: 150px;
+    height: 225px;
+    padding: 5px;
+	border-radius: 10px;
+}
+.normal {
+    width: 200px;
+    height: 300px;
+	margin-right: 5px;
+}
+.hidden {
+	height: 0;
+	width: 0;
+	visibility: hidden;
+}

@@ -1,0 +1,10 @@
+<?php
+
+$server = "localhost";
+$dbname ="petportal";
+$user = "dbguest";
+$pass = "Guest@14";
+$port="3306";
+$charset = 'utf8mb4';
+
+?>

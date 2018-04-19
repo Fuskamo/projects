@@ -1,0 +1,142 @@
+body {
+	font-family: verdana;
+	background-color: black;
+}
+.banner {
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	font-size: 26px;
+	font-weight: bold;
+	background-color: #B1181E;
+	width: 100%;
+	color: white;
+}
+.mainpage {
+	float: top;
+	height: 100vh;
+	width: auto;
+}
+.sidebar {
+	float: left;
+	height: 100vh;
+	width: 150px;
+}
+.menu {
+}
+.topbar {
+	float: right;
+	height: 100vh;
+	width: 150px;
+}
+
+.content {
+	margin-left: 50px;
+	margin-top: 20px;
+	float: left;
+}
+.list {
+	color: black;
+}
+
+.edit {
+
+    list-style-type: none;
+	text-align: left;
+	font-size: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 10px;
+	margin: 5px 0px 5px 0px;
+	background-color: white;
+	color: black;
+
+}
+
+table {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+table.sortable thead {
+	background-color: #B1181E;
+	color: white;
+	text-align: center;
+	padding-top: 10px;
+	cursor: default;
+}
+table td{
+	padding: 5px;
+}
+
+table.sortable thead td{
+	padding:10px;
+}
+
+table tbody tr:nth-child(odd) {
+	background-color: #EA683C;
+}
+table tbody tr:nth-child(even) {
+	background-color: #FCB53E;
+}
+
+.formadd {
+	color: white;
+	padding: 5px;
+	margin: 5px;
+}
+
+li.topicon {
+	width: 150px;
+    list-style-type: none;
+	text-align: center;
+	float: left;
+	color: white;
+	border: none;
+	font-size: 16px;
+	cursor: pointer;
+	padding: 10px;
+	margin: 5px 0px 5px 0px;
+}
+
+li.menulist {
+    list-style-type: none;
+	text-align: right;
+	width: 100%;
+	font-size: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 10px;
+	margin: 5px 0px;
+	background-color: #B1181E;
+	color: white;
+	border-right: solid;
+	border-color: black;
+}
+
+li.menuselected {
+    list-style-type: none;
+	text-align: right;
+	width: 100%;
+	float: top-left;
+	font-size: 16px;
+	text-transform: uppercase;
+	cursor: pointer;
+	padding: 10px;
+	margin: 5px 0px 5px 0px;
+	background-color: black;
+	color: #B1181E;
+	font-weight: bold;
+	border-right: solid;
+	border-color: white;
+}
+
+colors {
+	#B1181E - Red
+	#FCB53E - Orange
+	#EA683C -Yellow
+	#BDCC2A - Green
+	#76B0BD - Blue
+}
+

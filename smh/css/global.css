@@ -1,0 +1,137 @@
+.banner {
+	text-align: center;
+	text-transform: uppercase;
+	padding-top: 18px;
+	padding-bottom: 18px;
+	font-size: 26px;
+	font-weight: bold;
+	background-color: #D97100;
+	width: 100%;
+	color: white;
+}
+body, html {
+	font-family: Verdana;
+	max-height: 100%;
+	max-width: 100%;
+	background-color: black;
+}
+li {
+    float: left;
+    list-style-type: none;
+}
+.container {
+	float: left;
+	width: 100%;
+	height: auto;
+}
+.navbar {
+	width: 100%;
+	background-color: #FFB600;
+	height: 66px;
+}
+.navicon {
+	float: left;
+	color: white;
+	background-color: #D97100;
+	border: none;
+	font-size: 16px;
+	text-transform: uppercase;
+	border-radius: 10px;
+	cursor: pointer;
+	position: relative;
+	top: 6px;
+	left: 13px;
+	padding: 13px;
+	margin: 6px;
+}
+.navicon_clicked {
+	float: left;
+	background-color: 004C69;
+	color: white;
+	border: none;
+	font-size: 16px;
+	text-transform: uppercase;
+	border-radius: 10px;
+	position: relative;
+	top: 6px;
+	left: 13px;
+	padding: 13px;
+	margin: 6px;
+}
+.resetbutton {
+	color: white;
+	background-color: #D97100;
+	border: none;
+	font-size: 16px;
+	text-transform: uppercase;
+	border-radius: 10px;
+	cursor: pointer;
+	position: relative;
+	top: 6px;
+	right: 13px;
+	padding: 13px;
+	margin: 6px;
+	float: right;
+}
+.column_menu {
+	color: black;
+	float: right;
+	position: relative;
+	right: 300px;
+	top: 20px;
+	font-size: 11px;
+}
+.columns {
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	right: 13px;
+	padding: 9px;
+	margin: 4px;
+	float: right;
+	background-color: #D97100;
+}
+.columns_selected {
+	background-color: black;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	right: 13px;
+	padding: 9px;
+	margin: 4px;
+	float: right;
+	background-color: 004C69;
+}
+.nem_id {
+	color: white;
+	border-radius: 5px;
+	margin: 3px;
+	cursor: pointer;
+	padding: 7px;
+	background-color: #D97100;
+	border: solid;
+	border-color: black;
+	border-width: 1px;
+}
+.nem_nums {
+	clear: right;
+	float: right;
+	position: relative;
+	top: 0;
+	right: 0;
+	margin-right: 10px;
+	margin-top: 5px;
+}
+.nem_id_selected {
+	color: white;
+	border-radius: 5px;
+	margin: 3px;
+	cursor: pointer;
+	padding: 7px;
+	background-color: 004C69;
+	border: solid;
+	border-color: black;
+	border-width: 1px;
+}
